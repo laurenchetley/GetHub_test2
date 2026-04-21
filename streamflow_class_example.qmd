@@ -1,0 +1,47 @@
+---
+title: "streamflow_class_example"
+format: html
+editor: visual
+---
+
+## Quarto
+
+Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>.
+
+## Running Code
+
+When you click the **Render** button a document will be generated that includes both content and the output of embedded code. You can embed code like this:
+
+```{r}
+library(here)
+library(tidyverse)
+library(janitor)
+#reading and loading in the data 
+water_data=read.csv(here("water_data.csv"))
+
+#I dont want this 
+
+#aggregate by water year 
+p301_yearly<-water_data |>
+  group_by(wy)|>
+  summarise(total_streamflow=sum(streamflow),
+            total_precip=sum(precip),
+            percent_streamflow=(total_streamflow/total_precip)*100)
+
+#some calculations 
+mean(p301_yearly$percent_streamflow)
+
+range(p301_yearly$percent_streamflow)
+
+sd(p301_yearly$percent_streamflow)
+
+```
+
+You can add options to executable code like this
+
+```{r}
+#| echo: false
+2 * 2
+```
+
+The `echo: false` option disables the printing of code (only output is displayed).
