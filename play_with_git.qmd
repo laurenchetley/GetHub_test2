@@ -1,0 +1,17 @@
+---
+title: "play_with_git"
+format: html
+editor: visual
+author: lauren 
+---
+
+
+## use this to play with git and github 
+
+I can explore 
+This is a major test 
+here I am - making a mistake 
+Test 
+
+
+
